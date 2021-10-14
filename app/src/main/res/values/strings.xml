@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">InstagramClone</string>
+    <string name="btnLogin_Text">Login</string>
+    <string name="etUsername_Hint">Username</string>
+    <string name="etPassword_Hint">Password</string>
+</resources>
