@@ -26,6 +26,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(InstanceState);
         setContentView(R.layout.activity_login);
 
+        // Navigate to home screen if logged in
+        if (ParseUser.getCurrentUser() != null) {
+            goMainActivity();
+        }
+
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -52,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Issue with login!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // TODO: navigate to the main activity if the user has signed in properly
                 goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
             }
@@ -62,5 +66,6 @@ public class LoginActivity extends AppCompatActivity {
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        finish();
     }
 }
