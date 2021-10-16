@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">InstagramClone</string>
-    <string name="btnLogin_Text">Login</string>
-    <string name="etUsername_Hint">Username</string>
-    <string name="etPassword_Hint">Password</string>
+    <string name="btnLogin_text">Login</string>
+    <string name="etUsername_hint">Username</string>
+    <string name="etPassword_hint">Password</string>
+    <string name="btnCaptureImage_text">Take Picture</string>
+    <string name="btnSubmit_text">Submit</string>
+    <string name="btnLogout_text">Logout</string>
+    <string name="etDescription_hint">Description…</string>
+    <string name="ivPostImage_contentDescription">Your image to be uploaded.</string>
 </resources>
