@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
+    private ProgressBar pbPostLoading;
     private Button btnSubmit;
     private Button btnLogout;
     private File photoFile;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
+        pbPostLoading = (ProgressBar) findViewById(R.id.pbPostLoading);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout);
 
@@ -73,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
+                pbPostLoading.setVisibility(ProgressBar.VISIBLE);
+                ivPostImage.setVisibility(ImageView.GONE);
                 savePost(description, currentUser, photoFile);
             }
         });
@@ -156,8 +161,13 @@ public class MainActivity extends AppCompatActivity {
                 if (e != null) {
                     Log.e(TAG, "Error while saving post", e);
                     Toast.makeText(MainActivity.this, "Error while saving post!", Toast.LENGTH_SHORT).show();
+                    pbPostLoading.setVisibility(ProgressBar.GONE);
+                    ivPostImage.setVisibility(ImageView.VISIBLE);
+                    return;
                 }
                 Log.i(TAG, "Post save was successful");
+                pbPostLoading.setVisibility(ProgressBar.GONE);
+                ivPostImage.setVisibility(ImageView.VISIBLE);
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
             }
