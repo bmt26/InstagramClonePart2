@@ -8,4 +8,8 @@
     <string name="btnLogout_text">Logout</string>
     <string name="etDescription_hint">Description…</string>
     <string name="ivPostImage_contentDescription">Your image to be uploaded.</string>
+    <string name="tvSignUp_text">Don\'t have an account?</string>
+    <string name="btnSignUp_text">Sign up</string>
+    <string name="etEmail_hint">Email</string>
+    <string name="tvLogin_text">Have an account?</string>
 </resources>
