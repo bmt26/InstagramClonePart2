@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,6 +24,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.instagramclone.fragments.ComposeFragment;
+import com.example.instagramclone.fragments.PostsFragment;
+import com.example.instagramclone.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
 
+    final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigation;
 
     @Override
@@ -51,19 +56,25 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
-                    case R.id.action_home:
-                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                        fragment = new PostsFragment();
                         break;
                     case R.id.action_compose:
                         Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        fragment = new ComposeFragment();
                         break;
-                    case R.id.action_profile:
-                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                    case R.id.action_home:
                     default:
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        fragment = new ComposeFragment();
                         break;
                 }
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });
+        // Set default selection
+        bottomNavigation.setSelectedItemId(R.id.action_home);
     }
 }
