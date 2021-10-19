@@ -1,8 +1,10 @@
 package com.example.instagramclone;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,6 +15,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar pbPostLoading;
     private Button btnSubmit;
     private Button btnLogout;
+    private BottomNavigationView bottomNavigation;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         pbPostLoading = (ProgressBar) findViewById(R.id.pbPostLoading);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +95,26 @@ public class MainActivity extends AppCompatActivity {
                 ParseUser.logOut();
                 goLoginActivity();
                 Toast.makeText(MainActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment;
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                    default:
+                        break;
+                }
+                return true;
             }
         });
     }
