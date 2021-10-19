@@ -9,44 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/btnCaptureImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etDescription"
-        android:layout_marginTop="0dp"
-        android:backgroundTint="#BCBCBC"
-        android:text="@string/btnCaptureImage_text" />
-
-    <ImageView
-        android:id="@+id/ivPostImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/pbPostLoading"
-        android:layout_marginTop="0dp"
-        android:contentDescription="@string/ivPostImage_contentDescription"
-        android:visibility="visible"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ProgressBar
-        android:id="@+id/pbPostLoading"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/btnCaptureImage"
-        android:layout_marginTop="0dp"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ivPostImage"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="0dp"
-        android:backgroundTint="#BCBCBC"
-        android:text="@string/btnSubmit_text" />
-
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
@@ -64,14 +26,5 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         app:menu="@menu/menu_bottom_navigation" />
-
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/etDescription_hint"
-        android:importantForAutofill="no"
-        android:inputType="textShortMessage|textAutoCorrect" />
 
 </RelativeLayout>
