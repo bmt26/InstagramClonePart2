@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:icon="@drawable/instagram_home_outline_24"
+        android:title="@string/page_home_title"/>
+    <item
+        android:id="@+id/page_post"
+        android:enabled="true"
+        android:icon="@drawable/instagram_new_post_outline_24"
+        android:title="@string/page_post_title" />
+    <item
+        android:id="@+id/page_user"
+        android:enabled="true"
+        android:icon="@drawable/instagram_user_outline_24"
+        android:title="@string/page_user_title"/>
+</menu>
