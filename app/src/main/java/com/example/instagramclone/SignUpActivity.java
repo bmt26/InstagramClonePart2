@@ -86,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.signUpInBackground();
         Log.i(TAG, "Sign up user " + username + " success!");
         Toast.makeText(SignUpActivity.this, "Success!", Toast.LENGTH_SHORT).show();
-        goMainActivity();
+        goLoginActivity();
     }
 
     private void goMainActivity() {
