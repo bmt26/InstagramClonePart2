@@ -57,12 +57,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        private ImageView ivUserImage;
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            ivUserImage = itemView.findViewById(R.id.ivUserImage);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
@@ -70,9 +72,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         public void bind(Post post) {
             // Bind the post data to the view element
+            ParseFile image = post.getUser().getParseFile("userImage");
+            if (image != null) {
+                Glide.with(context).load(image.getUrl()).into(ivUserImage);
+            }
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
-            ParseFile image = post.getImage();
+            image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
