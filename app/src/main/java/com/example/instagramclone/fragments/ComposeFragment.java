@@ -47,6 +47,7 @@ public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
     private ProgressBar pbPostLoading;
     private Button btnSubmit;
+    private Button btnSubmitUserImage;
     private Button btnLogout;
     private File photoFile;
     public String photoFileName = "photo.jpg";
@@ -73,6 +74,7 @@ public class ComposeFragment extends Fragment {
         ivPostImage = view.findViewById(R.id.ivPostImage);
         pbPostLoading = (ProgressBar) view.findViewById(R.id.pbPostLoading);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        btnSubmitUserImage = view.findViewById(R.id.btnSubmitUserImage);
         btnLogout = view.findViewById(R.id.btnLogout);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,20 @@ public class ComposeFragment extends Fragment {
                 pbPostLoading.setVisibility(ProgressBar.VISIBLE);
                 ivPostImage.setVisibility(ImageView.GONE);
                 savePost(description, currentUser, photoFile);
+            }
+        });
+
+        btnSubmitUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (photoFile == null || ivPostImage.getDrawable() == null) {
+                    Toast.makeText(getContext(), "There is no image!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                pbPostLoading.setVisibility(ProgressBar.VISIBLE);
+                ivPostImage.setVisibility(ImageView.GONE);
+                saveUserImage(currentUser, photoFile);
             }
         });
 
@@ -185,6 +201,27 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
                 Log.i(TAG, "Post save was successful");
+                pbPostLoading.setVisibility(ProgressBar.GONE);
+                ivPostImage.setVisibility(ImageView.VISIBLE);
+                etDescription.setText("");
+                ivPostImage.setImageResource(0);
+            }
+        });
+    }
+
+    private void saveUserImage(ParseUser currentUser, File photoFile) {
+        currentUser.put("userImage", new ParseFile(photoFile));
+        currentUser.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Error while saving user image", e);
+                    Toast.makeText(getContext(), "Error while saving profile picture!", Toast.LENGTH_SHORT).show();
+                    pbPostLoading.setVisibility(ProgressBar.GONE);
+                    ivPostImage.setVisibility(ImageView.VISIBLE);
+                    return;
+                }
+                Log.i(TAG, "User image save was successful");
                 pbPostLoading.setVisibility(ProgressBar.GONE);
                 ivPostImage.setVisibility(ImageView.VISIBLE);
                 etDescription.setText("");
