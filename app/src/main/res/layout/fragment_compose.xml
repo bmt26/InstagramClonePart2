@@ -45,5 +45,12 @@
         android:backgroundTint="#BCBCBC"
         android:text="@string/btnSubmit_text" />
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BCBCBC"
+        android:text="@string/btnLogout_text" />
+
 
 </LinearLayout>
