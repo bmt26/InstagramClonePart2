@@ -14,4 +14,10 @@
         android:backgroundTint="#BCBCBC"
         android:text="@string/btnLogout_text" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp" />
+
 </LinearLayout>
