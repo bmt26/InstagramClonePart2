@@ -1,6 +1,6 @@
 # Project 3 - *InstagramClone*
 
-**InstagramClone** is a photo sharing app similar to Instagram but using Parse as its backend.
+**InstagramClone** is a photo-sharing social media app similar to Instagram but uses Parse as its backend.
 
 ## InstagramClone Part 2
 Time spent: **6** hours spent in total
@@ -10,7 +10,7 @@ Time spent: **6** hours spent in total
 The following **required** functionality is completed:
 
 - [X] User can view the last 20 posts submitted to "Instagram".
-- [X] The user should switch between different tabs - viewing all posts (feed view), compose (capture photos form camera) and profile tabs (posts made) using fragments and a Bottom Navigation View. (2 points)
+- [X] The user should switch between different tabs - viewing all posts (feed view), compose (capture photos from camera), and profile tabs (posts made) using fragments and a Bottom Navigation View. (2 points)
 - [X] User can pull to refresh the last 20 posts submitted to "Instagram".
 
 The following **optional** features are implemented:
@@ -21,11 +21,11 @@ The following **optional** features are implemented:
 - [ ] Show the username and creation time for each post.
 - [ ] User can tap a post to view post details, including timestamp and caption.
 - [X] User Profiles
-- - [X] Allow the logged in user to add a profile photo
+- - [X] Allow the logged-in user to add a profile photo
 - - [X] Display the profile photo with each post
 - - [ ] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts 
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
-- [ ] User can like a post and see number of likes for each post in the post details screen.
+- [ ] User can like a post and see the number of likes for each post in the post details screen.
 
 The following **additional** features are implemented:
 
@@ -41,7 +41,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ### Notes
 
-I found difficulty in implementing infinite pagination because it was different in two ways from the twitter project, parse was used instead of an API, and it was done within the context of a fragment instead of a activity.
+I found difficulty in implementing infinite pagination because it was different in two ways from the Twitter project, parse was used instead of an API, and it was done within the context of a fragment instead of an activity.
 
 ### Open-source libraries used
 
@@ -65,7 +65,7 @@ I found difficulty in implementing infinite pagination because it was different 
     limitations under the License.
 
 
-*InstagramClone** is a photo sharing app similar to Instagram but using Parse as its backend.
+*InstagramClone** is a photo-sharing app similar to Instagram but using Parse as its backend.
 
 ## InstagramClone Part 2
 Time spent: **8** hours spent in total
@@ -76,7 +76,7 @@ The following **required** functionality is completed:
 
 - [X] User can sign up to create a new account using Parse authentication.
 - [X] User can log in and log out of his or her account.
-- [X] The current signed in user is persisted across app restarts.
+- [X] The current signed-in user is persisted across app restarts.
 - [X] User can take a photo, add a caption, and post it to "Instagram".
 
 The following **optional** features are implemented:
